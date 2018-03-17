@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>tab-swiper</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    html, body {
+      height: 100%;
+    }
+    #box {
+      height: calc(100% - 60px);
+    }
+    .tab-container:nth-of-type(1) {
+      background: #f33;
+    }
+    .tab-container:nth-of-type(2) {
+      background: #33f;
+    }
+    .tab-container:nth-of-type(3) {
+      background: #3f3;
+    }
+    li {
+      font: 20px/70px "";
+    }
+    .pullDownHtml, .pullUpHtml {
+      height: 50px;
+      /* visibility: hidden; */
+      position: absolute;
+    }
+    .pullDownshow1, .pullDownshow2, .pullUpHtmlshow1, .pullUpHtmlshow2 {
+      font: 14px/50px "黑体";
+      text-align: center;
+    }
+    .pullDownshow2, .pullUpHtmlshow2 {
+      display: none;
+    }
+    .tabs {
+      height: 40px;
+      padding: 10px 50px;
+      display: flex;
+      background: #eee
+    }
+    .tabs span {
+      flex: 1;
+      font: 14px/38px "黑体";
+      text-align: center;
+      border: 1px solid #ddd;
+      margin: 0 5px;
+      border-radius: 8px;
+    }
+    .tabs span.active {
+      background: #ddd;
+    }
+  </style>
+</head>
+<body>
+  <div class="tabs">
+    <span class="active">page1</span>
+    <span>page2</span>
+    <span>page3</span>
+  </div>
+  <div id="box">
+    <div class="pullDownHtml">
+      <div class="pullDownshow1">下拉刷新</div>
+      <div class="pullDownshow2">正在刷新</div>
+    </div>
+    <div class="pullUpHtml">
+      <div class="pullUpHtmlshow1">上拉加载</div>
+      <div class="pullUpHtmlshow2">正在加载</div>
+    </div>
+    <div class="box">
+      <div class="tab-container">
+        <div class="s-pull">
+          <ul>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tab-container">
+        <div class="s-pull">
+            <ul>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+              </ul>
+        </div>
+      </div>
+      <div class="tab-container">
+        <div class="s-pull">
+            <ul>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+              </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<!-- <script src="./vconsole.min.js"></script> -->
+<script src="https://cdn.bootcss.com/touchjs/0.2.14/touch.min.js"></script>
+<script src="./js/tabSwiper.es5.min.js"></script>
+
+<script>
+  var box = document.getElementById('box')
+  var swiper = new TabSwiper(box, {
+    speed: 300,
+    threshold: 100,
+    isPullDown: true,
+    isPullUp: true,
+    closeInertia: false,
+    xThreshold: 0.3,
+    defaultPage: 0,
+    initCb: function () {
+      console.log('初始化完成')
+      var spans = document.querySelectorAll('.tabs span')
+      for(var i = 0; i < spans.length; i++) {
+        (function (page) {
+          spans[page].onclick = function () {
+            swiper.changePage(page)
+          }
+        })(i)
+      }
+    },
+    onRefreshStart: function () {
+      var pullDownshow1 = document.querySelector('.pullDownshow1')
+      var pullDownshow2 = document.querySelector('.pullDownshow2')
+      pullDownshow1.style.display = 'none'
+      pullDownshow2.style.display = 'block'
+      setTimeout(function () {
+        swiper.pullEnd(function (page) {
+          pullDownshow1.style.display = 'block'
+          pullDownshow2.style.display = 'none'
+          console.log('刷新结束----' + page)
+        })
+      }, 3000)
+    },
+    onLoadStart: function () {
+      var pullUpHtmlshow1 = document.querySelector('.pullUpHtmlshow1')
+      var pullUpHtmlshow2 = document.querySelector('.pullUpHtmlshow2')
+      pullUpHtmlshow1.style.display = 'none'
+      pullUpHtmlshow2.style.display = 'block'
+      setTimeout(function () {
+        swiper.pullEnd(function (page) {
+          pullUpHtmlshow1.style.display = 'block'
+          pullUpHtmlshow2.style.display = 'none'
+          console.log('加载结束----' + page)
+        })
+      }, 3000)
+    },
+    onEnd: function (page) {
+      console.log('当前所在----' + page)
+      var spans = document.querySelectorAll('.tabs span')
+      for(var i = 0; i < spans.length; i++) {
+        if (i != page) spans[i].className = ''
+        else spans[i].className = 'active'
+      }
+    },
+    onTouchmove: function (page, e) {
+      console.log('正在拖动...')
+    }
+  })
+</script>
+</html>
