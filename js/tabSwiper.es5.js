@@ -72,7 +72,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.box.style.position = 'relative';
         this.box.style.zIndex = 2;
 
-        this.totalWidth = this.box.clientWidth;
+        this.totalWidth = this.width * this.containers.length;
 
         [].forEach.call(this.containers, function (ele) {
           ele.style.float = 'left';
@@ -236,7 +236,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         if (this.prohibitPull) return;
         this.left = -page * this.width;
         changeTransform(this.box, this.left, this.disY);
-        this.nowIndex = Math.abs(this.left) / this.width;
+        this.nowIndex = page;
       }
     }]);
 
