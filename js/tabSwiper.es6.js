@@ -37,6 +37,12 @@
       this.left = 0                             // 向左偏移量
       // 初始化
       this.init()
+      window.addEventListener('resize', function () {
+        this.width = this.ele.clientWidth; // 容器宽度
+        this.height = this.ele.clientHeight; // 容器高度
+        this.totalWidth = this.width * this.containers.length;
+        this.changePage(this.nowIndex)
+      }.bind(this))
     }
 
     // 初始化
